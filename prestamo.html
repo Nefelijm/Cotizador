@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+
+
+	</head>
+
+	<body>  
+ 
+      <form id="second" autocomplete="off" method="post">
+				<div class="whitebk postula">
+				
+		<div class="row">
+              <div class="col-md-3">
+                  <div class='sefi'>
+                    <p>Quiero</p>
+                    <div class="myfield">
+                      <input type="text" value="S/ 50,000" data-val="50000" name="monto">
+                      <i class="fa fa-plus jumbos" data-val="+1" aria-hidden="true"></i>
+                      <i class="fa fa-minus jumbos" data-val="-1" aria-hidden="true"></i>
+                    </div>
+                    <p>Mínimo S/ 20,000</p>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class='sefi'>
+                    <p>En un plazo de</p>
+                    <div class="myfield">
+                      <select name="tiempo_prestamo">
+                        <option value="12">12 meses</option>
+                        <option value="18">18 meses</option>
+                        <option value="24">24 meses</option>
+                      </select>
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class='sefi'>
+                    <p>Soy un pagador</p>
+                    <div class="myfield">
+                      <select name="riesgo" class="eriesgo">
+                        <option value="3" data-replace="Muy bueno">Pago siempre a tiempo</option>
+                        <option value="2" data-replace="Bueno">Tengo atrasos de 1-2 meses</option>
+                        <option value="1" data-replace="Regular">Tengo atrasos de 2-4 meses</option>
+                        <option value="1" data-replace="Sin historial">Nunca he tenido deudas</option>
+                        <option value="0" data-replace="Incumplido">Tengo atrasos de 4 meses o +</option>
+                      </select>
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-3 theresult">
+                  <p>Tu cuota mensual es</p>
+                  <h2><span>S/</span>1,074<span>.89</span></h2>
+                  <button class="calc" onclick="dataLayer.push({'SolicitarPrestamo':true,'Interact':true,'MontoPrestamo':document.getElementsByName('monto')[0].value,'PlazoPrestamo':document.getElementsByName('tiempo_prestamo')[0].value,'RiesgoPrestamo':document.getElementsByName('eriesgo')[0].value})">Solicitar</button>
+              </div>
+						</div>
+				</div>
+        <p class='discla'>
+          TCEA: <span>37</span>% - Incluye intereses y todos los gastos vinculados | No incluye amortización, rembolsas el capital a tu ritmo.<br>
+          Ver <a class="cronono">cronograma de pagos</a> para más detalle. (La simulación de la cuota y el cronograma puede variar según tu perfil crediticio y otros factores)
+        </p>
+      </form>			
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="prestamo.js"></script>
+        
+ <script type="text/javascript">
+    $("#second").submit(function(){
+      format();
+      return true;
+    })
+    $(document).on("keypress", "#second", function(event) {
+          return event.keyCode != 13;
+    });
+    $('.pop-doc').click(function(){
+      $('.documentos').fadeIn();
+      $('body').css('overflow','hidden');
+    });
+    $('.pop-map').click(function(){
+      $('.mapcover').fadeIn();
+      $('body').css('overflow','hidden');
+    })
+    $('.clickclose').click(function(e){
+      if (event.target !== this) return;
+      $(this).hide();
+      $('body').css('overflow','auto');
+    });
+    $('.xclose').click(function(e){
+      $('.clickclose').hide();
+      $('body').css('overflow','auto');
+    });
+    $('.canclose').click(function(){
+      $('.flashx').hide();
+    });
+    $('.nav-right img').click(function(){
+      $('.nav-right .cont').toggle();
+    })
+      $('.cronograma button').click(function(){
+        $('#second').submit();
+      })
+</script>
+
+
+		<!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+     (function(){
+       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+           s1.async=true;
+           s1.src='https://embed.tawk.to/5a68b396d7591465c7070e7c/default';
+          s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+      })();
+    </script>
+ 
+
+	</body>
+</html>
